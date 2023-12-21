@@ -9,6 +9,6 @@ import org.springframework.kafka.config.TopicBuilder;
 public class KafkaTopicConfig {
     @Bean
     public NewTopic kafkaAssignmentTopic() {
-        return TopicBuilder.name("kafka-assignment").build();
+        return TopicBuilder.name("Auth-Topic").build();
     }
 }

@@ -21,9 +21,11 @@ public class TextToJson {
 
     @Autowired
     private final KafkaProducer producer;
-
-    public TextToJson(KafkaProducer producer) {
+    @Autowired
+    private final StreamService stream;
+    public TextToJson(KafkaProducer producer, StreamService stream) {
         this.producer = producer;
+        this.stream = stream;
     }
 
     public Map<Integer, HealthDataMapping> subscriberMappings;
@@ -46,6 +48,7 @@ public class TextToJson {
 
 
             parseHealthTextFile(textFilePath);
+            stream.kstream();
             System.out.println("Data Transformed Successfully");
 
         } catch (IOException e) {

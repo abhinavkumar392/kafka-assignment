@@ -21,7 +21,7 @@ public class KafkaProducer {
 
         try {
             LOGGER.info(String.format("Message sent %s",message));
-            kafkaTemplate.send("kafka-assignment", message);
+            kafkaTemplate.send("Auth-Topic", message);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
